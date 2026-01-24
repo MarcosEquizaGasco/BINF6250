@@ -78,7 +78,7 @@ Setting up the GitHub repository at first was somewhat of a struggle. Getting us
 Group leader's reflection on the project
 
 ## Other member
-Other members' reflections on the project
+Hongyuan Deng：Working with two classmates who are incredibly skilled at coding has been a great experience. I’ve learned so much about coding logic and problem-solving strategies just by observing how they approach a task. Even though coding isn't my strongest suit yet, I made sure to contribute by meticulously checking the details of our code when we writing. I believe that paying close attention to these small details helped us.
 
 # Generative AI Appendix
 No Generative AI was used in this project. 
