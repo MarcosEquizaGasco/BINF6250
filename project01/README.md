@@ -7,7 +7,6 @@ The script in this project reads a VCF file and identifies the diseases associat
 from pprint import pprint
 
 
-# Modify this function signature and fill in the details
 def parse_line(line: str, rare_variant_threshold: float):
 
     # Split line by tab to separate fields
@@ -41,7 +40,6 @@ def parse_line(line: str, rare_variant_threshold: float):
     pass
 
 
-# Modify this function signature and fill in the details
 def read_file(file: str):
 
     # Create disease_count dictinary for running tally
@@ -75,7 +73,7 @@ Setting up the GitHub repository at first was somewhat of a struggle. Getting us
 
 # Personal Reflections
 ## Group Leader
-Group leader's reflection on the project
+Marcos Equiza Gasco: I had a greta experience working with Hongyuan and Justin. Given this was my first time being team leader (and everyone's first project), we started off a little slow, with some issues in setting up the project repository in GitHub. However, Justin and Hongyuan were both very patient and helpful with fixing up the issue, and together we were able to correctly do it. We met twice outside of classtime, with everyone being very proactive about their schedules, as we wanted to get started early. During the project itself, I led the writing of the pseudo-code and actual code by sharing my screen, but it was a combined effort by all. We didn't encounter any major roadblocks, as we were able to help each other and work through the problem at the same time. As team leader, I tried to organize and run the meetings, but always giving space for Justin and Hongyuan to contribute and share their thoughts. I thought we worked very well as a team, and am happy by the results we got. 
 
 ## Other member
 Hongyuan Deng：Working with two classmates who are incredibly skilled at coding has been a great experience. I’ve learned so much about coding logic and problem-solving strategies just by observing how they approach a task. Even though coding isn't my strongest suit yet, I made sure to contribute by meticulously checking the details of our code when we writing. I believe that paying close attention to these small details helped us.

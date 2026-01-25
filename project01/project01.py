@@ -2,7 +2,6 @@
 from pprint import pprint
 
 
-# Modify this function signature and fill in the details
 def parse_line(line: str, rare_variant_threshold: float = 0.0001):
 
     # Split line by tab to separate fields
@@ -76,7 +75,6 @@ def parse_line(line: str, rare_variant_threshold: float = 0.0001):
     return clndn
 
 
-# Modify this function signature and fill in the details
 def read_file(file: str):
 
     # Create disease_count dictinary for running tally
