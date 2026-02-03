@@ -3,7 +3,7 @@ This project is intended to read in a text file and use the contents to train a 
 
 # Pseudocode
 ----- 
-
+```
 build_markov_model(markov_model, new_text): 
 
 Use helper function to convert new_text to lower case and make a list text_list (accounting for start and end states. E.g.: 
@@ -33,7 +33,7 @@ Add ‘*S*’ to start of list, ‘*E*’ to the end of list
 
 def get_next_word(current_word, markov_model_normalized, seed=42): 
 
-''' 
+
 Function to randomly move a valid next state given a markov model and a current state (word) 
 Args: current_word (tuple): a word that exists in our model 
 markov_model_normalized (dict of dicts): a dictionary of word (next_word:probability) 
@@ -50,7 +50,7 @@ Return new_word
 
 def generate_random_text(markov_model, seed=42, order=1): 
 
-''' 
+
 Function to generate text given a markov model 
 Args: markov_model (dict of dicts): a dictionary of word:(next_word:frequency pairs) 
 Returns: sentence (str): a randomly generated sequence given the model 
@@ -64,6 +64,8 @@ While '*E*’ is not in generate_list:
 	append get_next_word(tuple(generate_list[-order:]), markov_model_normalized) 
 Convert generate_list to text as sentence 
 Return sentence 
+
+```
 
 # Successes
 Description of the team's learning points
