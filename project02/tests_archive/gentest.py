@@ -1,8 +1,4 @@
-from parsetest import text_to_list, list_to_text, path, START, END, NL
-import random
-
 #print(list_to_text(text_to_list(path)))
-
 #markov_model = {}
 
 def build_markov_model(markov_model, path, order=1, separator="\n\n"):
@@ -122,11 +118,14 @@ def generate_random_text(markov_model_normalized, seed=12321, order=1,
             word_count += 1
     #print(generated_list)
     return list_to_text(generated_list, separator=separator)
-    
+
 
 if __name__ == "__main__":
+    from parsetest import text_to_list, list_to_text, path, START, END, NL
+    import random
+
     path = "data/sonnets.txt"
-    order = 1
+    order = 2
     separator = "\n\n"
 
     markov_model = {}
@@ -135,7 +134,7 @@ if __name__ == "__main__":
 
     output = generate_random_text(
         markov_model_normalized,
-        seed=12345,
+        seed=1245,
         order=order,
         limit_by="line",
         limit=14,
