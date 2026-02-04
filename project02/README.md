@@ -1,9 +1,78 @@
 # Introduction
 This project is intended to read in a text file and use the contents to train a Markov model. It then can produce new text content based on the generated Markov model.
 
+All functions written are found in `full_workflow_notebook.ipynb` along with reproducible implementations for demonstration.
+
+The example scripts `generate_sonnet.py`, `generate_odyssey_fragment.py` and `generate_onefishtwofish.py` have built-in random number generation through `random.random()` and can quickly produce some example nonsense.
+
+This project was done as an assignment for the course BINF6250 at Northeastern University.
+
 # Pseudocode
 ----- 
 ```
+--- Intended flow ---
+1. Initialize constants for special tokens: ie. START="*S*", END="*E*", NL="*NL*".
+
+2. Initialize an empty dictionary to store the Markov model counts, where:
+	- keys are tuples of tokens (states)
+	- values are dictionaries mapping next_token to integer count
+
+3. Open and read "sonnets.txt".  
+	If this fails, exit and raise an error.
+	Convert the full text to lowercase -> "new_text".
+
+4. Process "new_text" into a list of tokens -> [text_list] :
+	If separator is unspecified, treat the entire text as one chunk.
+		Otherwise, split the text by separator and store the results as chunks.
+	
+	Initialize [text_list] as a list containing a single `START` token.
+	
+	For each chunk:
+		- Strip leading and trailing whitespace from chunk.  
+		- Replace every single newline "\n" inside the chunk with NL (surrounded by spaces) so the newline becomes its own word.
+		- Split the chunk on whitespace and append the resulting tokens to [text_list].  
+	If this chunk is not the last chunk:
+		- Append END and then START to [text_list]
+	
+	After all chunks are processed, append a final END token to [text_list].
+	(This method keeps punctuation attached to words)
+
+5. Build count model:
+   Create an [expanded] text list:
+	   For each token in [text_list]: 
+	   If the token is START, append START (Markov order) times to [expanded].  
+	   Otherwise, append the token once to [expanded].
+    
+    For each viable state - next word pair, update the nested dictionaries:
+	    If the state is not a key in the outer dictionary, create it with a value of {}.
+	    If next word is not in the inner dict for that state, initialize its count to 0.
+	    Increment the transition count.
+
+6. Generate a new token sequence based on learned transition probabilities:
+	Initialize a reproducible random number generator.
+	Initialize generated list as a list containing START repeated (order) times.
+	Initialize counters for stopping conditions.
+	
+	Loop until a stopping condition is met or a hard token cap is reached:
+		-Define current state as the last (order) words of the generated list.
+		-Look up current_state in model-defining dictionary.
+		-Sample one token according to the stored probabilities.
+		-Append next token to generated list.
+	
+7. Convert the generated tokens back into readable text
+	If the token is START, skip it.
+	If the token is NL or END, append a newline character "\n" (optionally collapsing consecutive newlines) 
+		and note that you are at the start of a line
+	Otherwise:
+		If you are not at the start of a line, append a space
+		Append a token
+		Mark that you are no longer at the start of a line
+	Return text
+	
+____________________
+
+--- Draft Pseudocode from pre-planning meetings -----
+
 build_markov_model(markov_model, new_text): 
 
 Use helper function to convert new_text to lower case and make a list text_list (accounting for start and end states. E.g.: 
@@ -85,7 +154,7 @@ As mentioned above, I had a medical emergency and was out for the weekend and ea
 Designing the algorithm was the hardest part for me. Once we had the workings hashed out, most of the code was relatively straightforward to implement. Dictionaries prove a little tricky to use and get the correct syntax since they are made up of multiple data types put together. 
 
 ## Ngoc Linh Nguyen
-Other members' reflections on the project
+This project emphasized the point that planning out the logic of the algorithm (eg. by drafting pseudocode) is the most important step. Once we had outlined what we wanted the code to do in a meeting and helped each other come to a better understanding of the algorithm, what was left was just syntax. Even if unexpected issues with how we set out to implement a step are discovered, having a clear idea of the purpose of that step makes it fairly simple to debug or even modify. I think playing around with the parameters helped me form some intuition about Markov order, and I also ended up learning a bit about random number generators.
 
 # Generative AI Appendix
 Generative AI was not used for this assignment.
