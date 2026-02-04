@@ -75,9 +75,11 @@ We met and worked together to develop our algorithm. We had extremely productive
 # Struggles
 Description of the stumbling blocks the team experienced
 
+Our group leader, Marcos, had a medical emergency during the weekend, when we had planned to meet to write the code for the project. Since he wasn't available, the other team members, Victoria and Linh, took ownership over that part. It helped that the team had met previously to map out the conceptual plan for the project, letting Marcos have a clear understanding of the project. After he came back, Victoria and Linh walked him through the codebase, explaining the implementation and describing some bits of syntax, which was very helpful. While this was a drawback for the project, it was fortunate that we had planned on meeting early on to discuss the conceptual plan and pseudocode to tackle this project.
+
 # Personal Reflections
 ## Marcos Equiza Gasco
-Group leader's reflection on the project
+As mentioned above, I had a medical emergency and was out for the weekend and early in the week. Due to this, the other team members were very understanding and stepped up by taking responsibility over the code implementation. I am happy that we were able to meet before this happened, as that allowed me to still be part of the planning and conceptualization. We discussed the overall algorithm and separate helper functions that would be useful to implement it. Having this understanding allowed me to get up to speed after I came back from the hospital fairly easily. I think we worked well as a team, with everyone contributing to the execution of the plan. 
 
 ## Victoria Van Berlo
 Designing the algorithm was the hardest part for me. Once we had the workings hashed out, most of the code was relatively straightforward to implement. Dictionaries prove a little tricky to use and get the correct syntax since they are made up of multiple data types put together. 
