@@ -1,12 +1,12 @@
 from .parse_functions import text_to_list
 
-def build_markov_model(markov_model, path, order=1, separator="\n\n", START="*S*", END="*E*", NL="*NL*"):
+def build_markov_model(markov_model, new_text, order=1, separator="\n\n", START="*S*", END="*E*", NL="*NL*"):
     """
-    Update a count dictionary that defines a markov model using new text from a source file.
+    Update a count dictionary that defines a markov model using new text.
 
     Args:
         markov_model: Dict mapping state tuples to next-token count dicts.
-        path: Path to the training text file.
+        new_text: Training text.
         order: Markov order (token length of the count dictionary's key).
         separator: Chunk separator passed to `text_to_list`.
         START: Token to mark the start of a chunk.
@@ -17,7 +17,7 @@ def build_markov_model(markov_model, path, order=1, separator="\n\n", START="*S*
         The same markov_model dict updated with transition counts learned from input text.
     """
 
-    text_list = text_to_list(path, separator=separator)
+    text_list = text_to_list(new_text, separator=separator)
 
     expanded = []
     for word in text_list:
